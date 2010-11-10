@@ -1,15 +1,5 @@
-require 'henshin_client'
+require 'lib/henshin'
 
-Henshin::Client.url      = '79.99.0.10/converter'
-Henshin::Client.login    = 'admin'
-Henshin::Client.password = 'secret'
+Henshin.api_url      = 'localhost:3000'
 
-@converter = Henshin::Client.new
-files = []
-files << File.new("fixtures/abc.doc", "r")
-files << File.new("fixtures/abc.txt", "r")
-files << File.new("fixtures/abc.png", "r")
-@converter.files = files
-@converter.merge = true
-converted = @converter.run
-puts converted.inspect
+output = Henshin.convert_files(['fixtures/abc.txt'])
