@@ -31,18 +31,19 @@ module Henshin
       files = params[:files].collect {|f|
         File.new(f, 'rb')
       }
-      RestClient.post(Henshin.api_url + "/#{api_method}", :files => files, :multipart => true){ |response, request, result|
+      send_params = {:files => files, :multipart => true}
+      send_params.merge!({:callback_url => params[:callback_url]}) if params[:callback_url]
+      send_params.merge!({:merge_files => params[:merge_files]}) if params[:merge_files]
+      RestClient.post(Henshin.api_url + "/#{api_method}", send_params){ |response, request, result|
         case response.code
         when 200
           p "It worked !"
           response
         when Net::HTTPClientError
           raise Henshin::InvalidData, res.body if res.code == "422"
-        # else
-        #   response.return!(request, result, &block)
         end
       }
-
+      
     # if request_method == :post
     #   url = URI.parse(Henshin.api_url + "/#{api_method}")
     #   req = Net::HTTP::Post.new(url.path)
@@ -63,7 +64,7 @@ module Henshin
   end  
   
   def convert_files(files, convert_to = 'pdf', merge_files = 'yes')
-    data = {:files => files, :convert_to => 'pdf'}
+    data = { :files => files, :convert_to => 'pdf', :callback_url => 'http://localhost:3000/webhook' }
     send_api_request('jobs', data)
   end
 
