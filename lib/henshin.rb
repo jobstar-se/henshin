@@ -37,30 +37,12 @@ module Henshin
       RestClient.post(Henshin.api_url + "/#{api_method}", send_params){ |response, request, result|
         case response.code
         when 200
-          p "It worked !"
+          p "Everything cool!"
           response
         when Net::HTTPClientError
           raise Henshin::InvalidData, res.body if res.code == "422"
         end
-      }
-      
-    # if request_method == :post
-    #   url = URI.parse(Henshin.api_url + "/#{api_method}")
-    #   req = Net::HTTP::Post.new(url.path)
-    #   req.set_form_data(params)
-    # 
-    # # TODO: replace with tokens
-    # # req.basic_auth 'admin', 'admin'
-    # 
-    # res = Net::HTTP.new(url.host, url.port).start {|http| http.request(req) }
-    # case res
-    #   when Net::HTTPSuccess, Net::HTTPRedirection
-    #     return ::ActiveSupport::JSON.decode(res.body)
-    #   when Net::HTTPClientError
-    #     
-    # end
-    # 
-    # raise Henshin::APIException, res.error!
+      }      
   end  
   
   def convert_files(files, convert_to = 'pdf', merge_files = 'yes')
