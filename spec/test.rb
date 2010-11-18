@@ -7,8 +7,7 @@ Henshin.api_url      = 'localhost:3000'
 Henshin.api_username = 'admin'
 Henshin.api_password = 'secret'
 
-# files = ['fixtures/abc.txt', 'fixtures/test.doc']
-files = ['fixtures/abc.txt', 'fixtures/abc.txt']
+files = ['fixtures/abc.txt', 'fixtures/test.doc']
 
 client = Henshin::Client.new
 job_id = client.convert_files(:files => files)

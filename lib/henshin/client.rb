@@ -34,7 +34,7 @@ module Henshin
       def convert_params(opts = {})   
         params = default_convert_params 
                
-        if !opts[:files].empty? 
+        if opts[:files] && !opts[:files].empty? 
           opts[:files] = opts[:files].collect {|f|
             File.new(f, 'rb')
           }
