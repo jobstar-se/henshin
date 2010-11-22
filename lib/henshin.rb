@@ -10,7 +10,7 @@ module Henshin
   
   extend self
   
-  # autoload :Client, 'henshin/client'
+  autoload :Client, 'henshin/client'
   
   def api_url=(url)
     @api_url = url

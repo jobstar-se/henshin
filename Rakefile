@@ -11,16 +11,16 @@ require 'rake'
 
 require 'jeweler'
 Jeweler::Tasks.new do |gem|
-  # gem is a Gem::Specification... see http://docs.rubygems.org/read/chapter/20 for more options
+  # gem is a Gem::Specification... see    http://docs.rubygems.org/read/chapter/20 for more options
   gem.name = "henshin"
   gem.summary = %Q{API client for Jobstar file conversion service}
   gem.description = %Q{API client for Jobstar file conversion service}
   gem.email = "penkinv@gmail.com"
   gem.homepage = "http://shell.github.com"
-  gem.authors = ["Vladimir"]
+  gem.authors = ["Vladimir"]             
+  gem.files = Dir["{lib}/**/*", "{spec}/**/*"]     
   gem.add_runtime_dependency 'json'
-  
-    
+  # gem.add_runtime_dependency 'rest_client'        
 end
 Jeweler::GemcutterTasks.new
 
