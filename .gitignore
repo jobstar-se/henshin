@@ -1,0 +1,5 @@
+.bundle
+Gemfile.lock
+.DS_Store
+*.lock
+.idea/

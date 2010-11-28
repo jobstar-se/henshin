@@ -2,7 +2,7 @@ require '../lib/henshin'
 require '../lib/henshin/client'
 require 'ruby-debug'
 
-Henshin.api_url      = 'http://henshin.jobstar.se:3000'
+# Henshin.api_url      = 'http://henshin.jobstar.se:3000'
 Henshin.api_url      = 'localhost:3000'
 Henshin.api_username = 'admin'
 Henshin.api_password = 'secret'
