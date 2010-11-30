@@ -3,7 +3,7 @@ require '../lib/henshin/client'
 require 'ruby-debug'
 
 # Henshin.api_url      = 'http://henshin.jobstar.se:3000'
-Henshin.api_url      = 'localhost:3000'
+Henshin.api_url      = 'https://localhost:3000'
 Henshin.api_username = 'admin'
 Henshin.api_password = 'secret'
 
@@ -24,7 +24,7 @@ while true do
 end
 
 result_url = client.job_result_url(job_id)  
-result_id = client.job_result_id(job_id)  
+# result_id = client.job_result_id(job_id)  
 
 puts "Result url: #{result_url}"
 puts "Result asset_id: #{result_id}"
