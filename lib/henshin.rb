@@ -7,6 +7,7 @@ module Henshin
   class APIException   < StandardError; end
   class InvalidData    < APIException;  end
   class InvalidParams  < APIException;  end
+  class InvalidAuthorization  < APIException;  end
   
   extend self
   
@@ -39,27 +40,28 @@ module Henshin
   
       
   def send_api_request(api_method, params = {}, method = :get)
-    url = Henshin.api_url + "/#{api_method}"     
+    url = Henshin.api_url + "/#{api_method}.js"     
+    # params.merge!({:accept => :json, :content_type => :json})
     params.merge!({:username => @api_username, :password => @api_password})
     
     responce_proc = Proc.new { |response, request, result|
       case response.code
-      when 200
-        response
-      when Net::HTTPClientError
-        raise Henshin::InvalidData, response.body #if res.code == '422'
-      when Net::HTTPBadRequest
-        raise Henshin::InvalidParams, response.body #if res.code == '400
-      else
-        raise Henshin::APIException, response.body
+        when 200
+          response
+        when 400
+          raise Henshin::InvalidParams, response.body
+        when 401
+          raise Henshin::InvalidAuthorization, response.body
+        when 500
+          raise Henshin::InvalidData, response.body
       end
     }
     
     case method
-    when :get                 
-      RestClient.get(url, params, &responce_proc)
-    when :post
-      RestClient.post(url, params, &responce_proc)
+      when :get                 
+        RestClient.get(url, params, &responce_proc)
+      when :post
+        RestClient.post(url, params, &responce_proc)
     end
   end 
   

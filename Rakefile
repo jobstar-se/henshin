@@ -20,7 +20,7 @@ Jeweler::Tasks.new do |gem|
   gem.authors = ["Vladimir"]             
   gem.files = Dir["{lib}/**/*", "{spec}/**/*"]     
   gem.add_runtime_dependency 'json'
-  # gem.add_runtime_dependency 'rest_client'        
+  gem.add_runtime_dependency 'rest_client'        
 end
 Jeweler::GemcutterTasks.new
 
