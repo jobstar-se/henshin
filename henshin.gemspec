@@ -24,7 +24,8 @@ Gem::Specification.new do |s|
     "spec/fixtures/abc.pdf",
     "spec/fixtures/abc.txt",
     "spec/fixtures/abc_mailformed.pdf",
-    "spec/fixtures/test.doc"
+    "spec/fixtures/test.doc",
+    "spec/test.rb"
   ]
   s.homepage = %q{http://shell.github.com}
   s.require_paths = ["lib"]
@@ -32,7 +33,8 @@ Gem::Specification.new do |s|
   s.summary = %q{API client for Jobstar file conversion service}
   s.test_files = [
     "spec/convert_test.rb",
-    "spec/extract_test.rb"
+    "spec/extract_test.rb",
+    "spec/test.rb"
   ]
 
   if s.respond_to? :specification_version then
