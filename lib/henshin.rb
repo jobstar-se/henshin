@@ -37,13 +37,11 @@ module Henshin
   def api_password
     @api_password or raise "API password is not specified"
   end        
-  
-      
+        
   def send_api_request(api_method, params = {}, method = :get)
     url = Henshin.api_url + "/#{api_method}.js"     
     # params.merge!({:accept => :json, :content_type => :json})
-    params.merge!({:username => @api_username, :password => @api_password})
-    
+    params.merge!({:username => @api_username, :password => @api_password})    
     responce_proc = Proc.new { |response, request, result|
       case response.code
         when 200
@@ -64,6 +62,5 @@ module Henshin
         RestClient.post(url, params, &responce_proc)
     end
   end 
-  
   
 end
