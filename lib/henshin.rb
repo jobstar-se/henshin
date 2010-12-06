@@ -11,8 +11,8 @@ module Henshin
   
   extend self
   
-  # autoload :Client, 'henshin/client'
-  # autoload :Extractor, 'henshin/extractor'
+  autoload :Client, 'henshin/client'
+  autoload :Extractor, 'henshin/extractor'
   
   def api_url=(url)
     @api_url = url
