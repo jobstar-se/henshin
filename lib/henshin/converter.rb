@@ -1,5 +1,5 @@
 module Henshin  
-  class Client
+  class Converter
     attr_accessor :convert_to, :merge_files, :do_callback, :callback_url
 
     def files
@@ -12,7 +12,7 @@ module Henshin
       params = convert_params(opts.merge({:multipart => true}))
       job_id = Henshin.send_api_request('jobs', params, :post)
       job_id
-    end                             
+    end
     
     def job_status(job_id)
       status = Henshin.send_api_request("jobs/#{job_id}/status")    

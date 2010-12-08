@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Vladimir"]
-  s.date = %q{2010-12-06}
+  s.date = %q{2010-12-08}
   s.description = %q{API client for Jobstar file conversion service}
   s.email = %q{penkinv@gmail.com}
   s.extra_rdoc_files = [
@@ -17,15 +17,19 @@ Gem::Specification.new do |s|
   ]
   s.files = [
     "lib/henshin.rb",
-    "lib/henshin/client.rb",
+    "lib/henshin/converter.rb",
     "lib/henshin/extractor.rb",
     "spec/convert_test.rb",
+    "spec/converter_spec.rb",
     "spec/extract_test.rb",
+    "spec/extractor_spec.rb",
     "spec/fixtures/abc.pdf",
     "spec/fixtures/abc.txt",
     "spec/fixtures/abc_mailformed.pdf",
     "spec/fixtures/test.doc",
-    "spec/test.rb"
+    "spec/fixtures/test.gif",
+    "spec/henshin_spec.rb",
+    "spec/spec_helper.rb"
   ]
   s.homepage = %q{http://shell.github.com}
   s.require_paths = ["lib"]
@@ -33,8 +37,11 @@ Gem::Specification.new do |s|
   s.summary = %q{API client for Jobstar file conversion service}
   s.test_files = [
     "spec/convert_test.rb",
+    "spec/converter_spec.rb",
     "spec/extract_test.rb",
-    "spec/test.rb"
+    "spec/extractor_spec.rb",
+    "spec/henshin_spec.rb",
+    "spec/spec_helper.rb"
   ]
 
   if s.respond_to? :specification_version then
@@ -47,6 +54,7 @@ Gem::Specification.new do |s|
       s.add_development_dependency(%q<ruby-debug>, [">= 0"])
       s.add_development_dependency(%q<bundler>, ["~> 1.0.0"])
       s.add_development_dependency(%q<jeweler>, ["~> 1.5.0.pre3"])
+      s.add_development_dependency(%q<rspec>, [">= 0"])
       s.add_runtime_dependency(%q<json>, [">= 0"])
       s.add_runtime_dependency(%q<rest-client>, [">= 0"])
     else
@@ -55,6 +63,7 @@ Gem::Specification.new do |s|
       s.add_dependency(%q<ruby-debug>, [">= 0"])
       s.add_dependency(%q<bundler>, ["~> 1.0.0"])
       s.add_dependency(%q<jeweler>, ["~> 1.5.0.pre3"])
+      s.add_dependency(%q<rspec>, [">= 0"])
       s.add_dependency(%q<json>, [">= 0"])
       s.add_dependency(%q<rest-client>, [">= 0"])
     end
@@ -64,6 +73,7 @@ Gem::Specification.new do |s|
     s.add_dependency(%q<ruby-debug>, [">= 0"])
     s.add_dependency(%q<bundler>, ["~> 1.0.0"])
     s.add_dependency(%q<jeweler>, ["~> 1.5.0.pre3"])
+    s.add_dependency(%q<rspec>, [">= 0"])
     s.add_dependency(%q<json>, [">= 0"])
     s.add_dependency(%q<rest-client>, [">= 0"])
   end
