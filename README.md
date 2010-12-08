@@ -1,4 +1,4 @@
-# Henshin Client
+# Henshin Converter
 
 API client for Jobstar File Conversion Service.
 
@@ -20,7 +20,7 @@ Save the file and restart your application.
 ### Create convertion job
 Set parameters to instance
 
-    @henshin = Henshin::Client.new
+    @henshin = Henshin::Converter.new
     @henshin.files = ['file1.doc', 'file2.txt', 'file3.jpg']
     @henshin.merge_files = true
     @henshin.do_callback = false
@@ -28,7 +28,7 @@ Set parameters to instance
 
 Or pass parameters to method
 
-    @henshin = Henshin::Client.new
+    @henshin = Henshin::Converter.new
     job_id = @henshin.convert_files(:files => ['file1.doc'], :merge_files => true, :do_callback => true, :callback_url => 'http://henshin.jobstar.se/webhook')
     
 ### Check job status
@@ -51,7 +51,7 @@ Or pass parameters to method
     Henshin.api_username = 'admin'
     Henshin.api_password = 'secret'
 
-    client = Henshin::Client.new
+    client = Henshin::Converter.new
     job_id = client.convert_files(:files => files)
 
     while true do

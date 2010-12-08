@@ -8,6 +8,10 @@ rescue Bundler::BundlerError => e
   exit e.status_code
 end
 require 'rake'
+require "rspec"
+require "rspec/core/rake_task"
+Rspec::Core::RakeTask.new(:spec)
+
 
 require 'jeweler'
 Jeweler::Tasks.new do |gem|
