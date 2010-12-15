@@ -1,5 +1,5 @@
-require "net/http"
-require "uri" 
+require 'net/http'
+require 'uri'
 require 'rubygems'
 require 'rest_client'
                  
@@ -45,13 +45,16 @@ module Henshin
     responce_proc = Proc.new { |response, request, result|
       case response.code
         when 200
-          response
+          "#{response}"                                 # hack for response String-proxy-object 
+        when 302
+          raise Henshin::APIException, response.body
         when 400
           raise Henshin::InvalidParams, response.body
         when 401
           raise Henshin::InvalidAuthorization, response.body
         when 500
           raise Henshin::InvalidData, response.body
+  
       end
     }
     

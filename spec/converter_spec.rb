@@ -20,6 +20,12 @@ describe Henshin::Converter do
     isNumeric(result).should be_true
   end                                                  
 
+  it "should convert docx files to pdf and return job_id" do
+    result = @converter.convert_files(:files => File.dirname(__FILE__) + '/fixtures/test.docx')
+    result.should be_a(String)
+    isNumeric(result).should be_true
+  end                                                  
+
   it "should convert gif files to pdf and return job_id" do
     result = @converter.convert_files(:files => File.dirname(__FILE__) + '/fixtures/test.gif')
     result.should be_a(String)
@@ -52,7 +58,6 @@ describe Henshin::Converter do
       sleep 0.5        
     end
     result = @converter.job_result_url(job_id)
-    puts result.inspect
     result.strip.should_not be_empty
   end
         

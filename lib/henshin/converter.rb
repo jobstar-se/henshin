@@ -6,8 +6,14 @@ module Henshin
       @files ||= []
     end                     
     
-    # Parameters:
-    # :files, :merge_files, :do_callback, :callback_url 
+    # Convert files to pdf                                                                             
+    # 
+    # <tt>:files</tt>:: files to convert 
+    # <tt>:merge_files</tt>:: merge files after convertion ['true', 'false']
+    # <tt>:callback_url</tt>:: Callback url
+    # <tt>:convert_to</tt>:: Convert to pdf or image-based-pdf ['image_pdf', 'pdf]. Default 'image_pdf'
+    # 
+    # Return convertion job identificator, that can be used in next methods
     def convert_files(opts = {})   
       params = convert_params(opts.merge({:multipart => true}))
       job_id = Henshin.send_api_request('jobs', params, :post)
@@ -46,7 +52,6 @@ module Henshin
         
         opts[:convert_to] ||= @convert_to || params[:convert_to]
         opts[:merge_files] ||= @merge_files || params[:merge_files]
-        opts[:do_callback] ||= @do_callback || params[:do_callback]
         opts[:callback_url] ||= @callback_url || params[:callback_url]
         
         params.merge!(opts)
