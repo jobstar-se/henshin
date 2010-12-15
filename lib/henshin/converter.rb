@@ -61,8 +61,7 @@ module Henshin
         { 
           :convert_to => 'pdf', 
           :merge_files => true, 
-          :do_callback => false, 
-          :callback_url => 'http://localhost:3000/webhook' 
+          # :callback_url => 'http://localhost:3000/webhook' 
         }
       end
 
