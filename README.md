@@ -34,6 +34,11 @@ Or pass parameters to method
   
     job_id = @henshin.convert_files(:files => ['file1.doc'], :merge_files => true, :callback_url => 'http://henshin.jobstar.se/webhook')
     
+  by default text-based data will be converted to image-based pdf, to turn data in to ordinary pdf use:
+    
+    job_id = @henshin.convert_files(:files => ['file1.doc'], :convert_to => 'pdf)
+    
+    
 ### Check job status
 
     status = @henshin.job_status(job_id)
