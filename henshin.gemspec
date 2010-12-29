@@ -20,7 +20,7 @@ Gem::Specification.new do |s|
   s.require_paths = ["lib"]
 
 #  s.add_dependency(%q<json>, [">= 0"])
-#  s.add_dependency(%q<rest-client>, [">= 0"])
+  s.add_dependency(%q<rest-client>, [">= 0"])
 #  s.add_dependency(%q<ruby-debug>, [">= 0"])
 #  s.add_dependency(%q<bundler>, ["~> 1.0.0"])
 #  s.add_dependency(%q<rspec>, [">= 0"])
