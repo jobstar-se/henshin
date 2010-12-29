@@ -1,3 +1,4 @@
+# -*- encoding: utf-8 -*-
 $:.push File.expand_path("../lib", __FILE__)
 require "henshin/version"
 
@@ -11,7 +12,7 @@ Gem::Specification.new do |s|
   s.summary     = %q{Write a gem summary}
   s.description = %q{API Client for Henshin Server}
 
-  s.rubyforge_project = "testgem"
+  s.rubyforge_project = "henshin"
 
   s.files         = `git ls-files`.split("\n")
   s.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")
