@@ -1,9 +1,9 @@
 $:.push File.expand_path("../lib", __FILE__)
-require "testgem/version"
+require "henshin/version"
 
 Gem::Specification.new do |s|
   s.name        = "henshin"
-  s.version     = Henshingem::VERSION
+  s.version     = Henshin::VERSION
   s.platform    = Gem::Platform::RUBY
   s.authors     = ["Vladimir Penkin"]
   s.email       = ["penkinv@gmail.com"]
